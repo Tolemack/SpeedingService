@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SpeedingService</string>
+    <string name="my_app_name">Speeding Service</string>
+    <string name="permissionRequest">
+        We need access to your position
+        in order to read the speed of the vehicle
+    </string>
+
+    <string name="button_on">"Service On"</string>
+    <string name="button_off">"Service Off"</string>
+    <string name="button_request">"Request permissions"</string>
+    <string name="notif_title">"Speed > 140"</string>
+    <string name="notif_text">"Please slow down"</string>
+
+</resources>
