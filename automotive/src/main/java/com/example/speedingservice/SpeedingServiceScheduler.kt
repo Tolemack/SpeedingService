@@ -1,11 +1,5 @@
 package com.example.speedingservice;
 
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.ServiceConnection
-import android.os.IBinder
-import android.util.Log
 import androidx.car.app.CarAppPermission
 import androidx.car.app.CarContext
 import androidx.car.app.CarToast
@@ -23,7 +17,8 @@ class SpeedingServiceScheduler(private val carContext: CarContext) {
     private val workManager = WorkManager.getInstance(carContext)
     var serviceOn = false;
 
-    private val intent: Intent = Intent(carContext, SpeedingService::class.java)
+    // Binding being unecessary for my use case
+    /*private val intent: Intent = Intent(carContext, SpeedingService::class.java)
     private var mSpeedingService: SpeedingService? = null
     private val mSpeedingServiceConnection = object: ServiceConnection {
         @androidx.annotation.OptIn(androidx.car.app.annotations.ExperimentalCarApi::class)
@@ -35,7 +30,7 @@ class SpeedingServiceScheduler(private val carContext: CarContext) {
         override fun onServiceDisconnected(arg0: ComponentName) {
             Log.i(TAG, "SERVICE DISCONNECTED")
         }
-    }
+    }*/
 
     fun checkPermission(): Boolean {
         try {
@@ -65,7 +60,7 @@ class SpeedingServiceScheduler(private val carContext: CarContext) {
 
     fun scheduleSpeedingService() {
         workManager.cancelAllWork()
-        if(checkPermission()) {
+        if (checkPermission()) {
             workManager.beginUniqueWork(
                 "SpeedingStartWork",
                 ExistingWorkPolicy.KEEP,

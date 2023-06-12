@@ -1,14 +1,10 @@
 package com.example.speedingservice
 
-import android.util.Log
 import androidx.car.app.CarContext
 import androidx.car.app.Screen
 import androidx.car.app.model.Action
 import androidx.car.app.model.CarColor
 import androidx.car.app.model.MessageTemplate
-import androidx.car.app.model.Pane
-import androidx.car.app.model.PaneTemplate
-import androidx.car.app.model.Row
 import androidx.car.app.model.Template
 
 class SpeedingScreen(carContext: CarContext) : Screen(carContext) {
@@ -27,6 +23,7 @@ class SpeedingScreen(carContext: CarContext) : Screen(carContext) {
                 startButtonListener()
             }
             .build()
+
     private var stopButton: Action =
         Action.Builder()
             .setTitle(
@@ -49,6 +46,8 @@ class SpeedingScreen(carContext: CarContext) : Screen(carContext) {
             }
             .build()
 
+    // This class allows Screen's invalidation after the user
+    // approves the CAR_SPEED permission
     inner class RefreshScreen() {
         fun refresh(){
             this@SpeedingScreen.invalidate()
